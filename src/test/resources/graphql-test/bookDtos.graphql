@@ -1,0 +1,6 @@
+query {
+    bookDtos {
+        name
+        pageCount
+    }
+}

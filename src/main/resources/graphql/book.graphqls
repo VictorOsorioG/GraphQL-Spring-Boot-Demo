@@ -1,0 +1,30 @@
+extend type Query {
+    books: [Book]
+    bookById(id: Int): Book
+    bookDtos: [BookDto]
+    bookDtosFilterPage(pages: Int): [BookDto]
+}
+
+extend type Mutation {
+    createBook(bookRequest : BookRequest) : Boolean
+}
+
+type Book {
+    id: ID
+    name: String
+    pageCount: Int
+    author: Author
+}
+
+type BookDto {
+    name: String
+    pageCount: Int
+    author(filter: String): AuthorDto
+    descriptionResolver: String
+}
+
+input BookRequest {
+    name: String
+    pageCount: Int
+    authorId: ID
+}
